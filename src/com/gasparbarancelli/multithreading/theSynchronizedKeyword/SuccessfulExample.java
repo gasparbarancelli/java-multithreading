@@ -1,6 +1,7 @@
 package com.gasparbarancelli.multithreading.theSynchronizedKeyword;
 
-public class Demo4 {
+public class SuccessfulExample {
+
     private int count = 0;
 
     private synchronized void increment() {
@@ -8,7 +9,7 @@ public class Demo4 {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        new Demo4().run();
+        new SuccessfulExample().run();
     }
 
     private void run() throws InterruptedException {

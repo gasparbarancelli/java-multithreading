@@ -1,22 +1,27 @@
 package com.gasparbarancelli.multithreading.theSynchronizedKeyword;
 
-public class Demo2 {
+public class ExampleWithError3 {
+
     private int count = 0;
 
+    private void increment() {
+        count++;
+    }
+
     public static void main(String[] args) throws InterruptedException {
-        new Demo2().run();
+        new ExampleWithError3().run();
     }
 
     private void run() throws InterruptedException {
         var thread1 = new Thread(() -> {
             for (int i = 0; i < 1_000_000; i++) {
-                count++;
+                increment();
             }
         });
 
         var thread2 = new Thread(() -> {
             for (int i = 0; i < 1_000_000; i++) {
-                count++;
+                increment();
             }
         });
 
