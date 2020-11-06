@@ -2,7 +2,7 @@ package com.gasparbarancelli.multithreading.basicThreadSynchronization;
 
 import java.util.Scanner;
 
-public class Demo1 {
+public class Demo {
 
     public static void main(String[] args) {
         System.out.println("Main Thread Id: " + Thread.currentThread().getId());
