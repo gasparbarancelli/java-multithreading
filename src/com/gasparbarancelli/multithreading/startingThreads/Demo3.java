@@ -3,18 +3,27 @@ package com.gasparbarancelli.multithreading.startingThreads;
 public class Demo3 {
 
     public static void main(String[] args) {
-        var thread1 = new Thread(new MyRunnable());
-        var thread2 = new Thread(new MyRunnable());
-        thread1.start();
-        thread2.start();
         System.out.println("Main Thread ID: " + Thread.currentThread().getId());
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                loop();
+            }
+        }).start();
+
+        // lambda
+        new Thread(() -> loop()).start();
+
+        // method reference
+        new Thread(Demo3::loop).start();
     }
 
-    private static class MyRunnable implements Runnable {
-        @Override
-        public void run() {
-            System.out.println("Thread ID: " + Thread.currentThread().getId());
-            System.out.println("Running in parallel");
+    private static void loop() {
+        var threadId = Thread.currentThread().getId();
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Thread Id: " + threadId + ", Value: " + i);
         }
     }
 
